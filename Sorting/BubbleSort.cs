@@ -1,4 +1,6 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
+﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using DocumentFormat.OpenXml.Presentation;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,12 +50,42 @@ namespace C_Sharp_Turorial.Sorting
         {
             for(int i = 0; i<arr.Length-1; i++)
             {
-                for(int j = 0; j<arr.Length-1-i; j++) // Upper bound reduced by i+1 in each pass
+               // Inside the outer loop, the inner loop
+               // iterates through the array, comparing adjacent elements. The upper bound of the inner
+               // loop is adjusted by i + 1 in each pass. This is because with each pass, the largest
+               // element bubbles to the end, reducing the unsorted portion of the array.
+
+                for (int j = 0; j<arr.Length-1-i; j++) // Upper bound reduced by i+1 in each pass
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    Swap(arr, j, j + 1);
+                    }
+                }
+            }
+        }
+
+
+        // Swap Falg Bubble Sort
+
+        public static void SwapFlagBubble(int[] arr)
+        {
+            for(int i = 0; i<arr.Length - 1; i++)
+            {
+                bool swapped = false;
+                for(int j = 0; j<arr.Length-i-1; j++)
                 {
                     if (arr[j] > arr[j + 1])
                     {
-                        Swap(arr, j, j + 1);
+                        Swap(arr, i, j);
+                        swapped = true;
                     }
+
+                }
+
+                if (!swapped)
+                {
+                    break;
                 }
             }
         }
