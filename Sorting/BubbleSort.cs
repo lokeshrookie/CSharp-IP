@@ -1,6 +1,8 @@
-﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.Presentation;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +24,7 @@ namespace C_Sharp_Turorial.Sorting
             int[] arr = { 5, 4, 3, 2, 1 };
             Console.WriteLine( string.Join(" ", arr));
             //Bubble(arr);
-            ShortBubble(arr);
+            Insertion(arr);
             Console.WriteLine(string.Join(" ", arr));
 
 
@@ -95,6 +97,64 @@ namespace C_Sharp_Turorial.Sorting
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
+        }
+
+
+
+        /*  SELECTION SORT
+         *  
+         *  1. For every iteration, find max element and put it in the last index.
+         *  2. swap both.
+         *  
+         *  */
+
+        public static void Selection(int[] arr)
+        {
+            for(int i = 0; i<arr.Length; i++)
+            {
+                int last = arr.Length - i-1;
+                int max = FindMax(arr, 0, last);
+                Swap(arr, max, last);
+
+            }
+        } 
+
+        public static int FindMax(int[] arr, int first, int last)
+        {
+            int max = first;
+            for(int i = first; i<=last; i++)
+            {
+                if (arr[i] > arr[max])
+                {
+                    max = i;
+                }
+            }
+            return max;
+        }
+
+
+        /*  INSERTION SORT */
+        /**
+     * Insertion sort:
+     *  Start with the second element as the key.
+     * Compare the key with elements in the sorted portion (elements to the left of the key).
+     * Shift elements to the right until finding the correct position for the key.
+     * Insert the key at the correct position.
+     * Repeat for all elements in the array
+     * @param arr
+     */
+        public static void Insertion(int[] arr)
+        {
+            for(int i =0 ; i<arr.Length-1; i++)
+            {
+                for(int j = i+1; j>0; j--)
+                {
+                    if (arr[j-1] > arr[j])
+                    {
+                        Swap(arr, j - 1, j);
+                    }
+                }
+            }
         }
     }
 }
