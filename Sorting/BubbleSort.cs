@@ -17,7 +17,7 @@ namespace C_Sharp_Turorial.Sorting
      * 2. Inner loop starts from second(1st index) element. 
      * 3. For every index, it compares its previous element. If prev > current, swap both.
      */
-    internal class BubbleSort
+    internal class Bubble
     {
         public static void Main(string[] args)
         {
