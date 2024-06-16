@@ -18,7 +18,8 @@ namespace C_Sharp_Turorial.Bitwise
          */
         public static int FindIthBit(int num, int n)
         {
-            
+            //  num is the given number.
+            // n is no.of times we need to left shift.
             return (num & (1 << (n-1))); 
         }
 
