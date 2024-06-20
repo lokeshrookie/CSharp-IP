@@ -1,0 +1,26 @@
+The magic of extension methods in C# is that they allow methods defined in a static class to be called as if they were instance methods of the type they're extending. Let's break this down step-by-step to clarify how it works.
+
+How Extension Methods Work
+1. Static Class: Extension methods must be defined in a static class.
+2. Static Method: The method itself must be static.
+3. this Keyword: The first parameter of the static method specifies the type it extends, prefixed with the this keyword.
+
+point 3 is very important. "this string name" indicates that method extends the 'string' type.
+
+Example: ExtensionMethods.cs 
+
+To use the extension method defined in ExtensionMethods.cs:
+
+using System;
+using CustomExtensions; // Include the namespace where the extension method is defined
+
+public class Program
+{
+    public static void Main()
+    {
+        string sentence = "Hello, how are you doing today?";
+        int count = sentence.WordCount(); // Call the extension method as if it's an instance method
+        Console.WriteLine($"Word count: {count}");
+    }
+}
+
