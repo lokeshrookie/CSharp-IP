@@ -1,0 +1,12 @@
+Enums also known as Enumeration types.
+
+1. We can't define Method inside Enum (use extension methods)
+2. Enums are set of named constants.
+3. be default, associated values are int.
+4. we can also specity associated constant values.
+5.
+
+ExtensionMethods:
+1. static. 
+2. used to add methods ot existing types.
+3. 
