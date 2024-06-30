@@ -27,8 +27,6 @@ namespace C_Sharp_Turorial.Bitwise
             int afterReset = num & mask;
 
             return afterReset;
-            //return (num & ((1 << (num - 1))));
-
         }
 
         public static string DecToBinary(int number)
